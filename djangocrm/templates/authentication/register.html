@@ -1,9 +1,34 @@
-{% extends "base_auth.html" %}
+{% extends "base_auth.html" %}{% block title %} Register{% endblock title %} {% block content %}
 
-{% block content %}
-<div class="card">
-    <div class="card-body">
-        <h1>Login</login>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-5">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="m-lg-1">Register Account</h4>
+        </div>
+        <form action="" method="post">
+          <div class="form-group">
+            <div class="form-floating">
+              <input type="email" name="email" id="" class="form-control form-control-sm" id="idEmail" placeholder="Email" />
+              <label for="idEmail">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="text" name="username" id="" class="form-control form-control-sm" id="idUsername" placeholder="Username" />
+              <label for="idUsername">Username</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" name="password" id="" class="form-control form-control-sm" id="idPassword" placeholder="Password" />
+              <label for="idPassword">Password</label>
+            </div>
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit">Register Account</button>
+        </form>
+      </div>
     </div>
+  </div>
+  <div class="col-md-4"></div>
 </div>
+
 {% endblock content %}
