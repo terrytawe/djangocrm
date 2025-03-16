@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib import messages
 import os
 import environ
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -133,3 +135,8 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Message Constants
+MESSAGES_TAGS = {
+    messages.ERROR: 'danger'
+}
