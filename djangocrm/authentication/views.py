@@ -6,9 +6,14 @@ from django.contrib.auth.models import User
 from validate_email import validate_email
 from django.contrib import messages
 
-# Create your views here.
 
+#--------------------------------------------------------------------------------------------------    
+# Create your views here.
+#--------------------------------------------------------------------------------------------------    
+
+#--------------------------------------------------------------------------------------------------    
 #View to validate username
+#--------------------------------------------------------------------------------------------------    
 class UsernameValidationView(View):
     def post(self, request):
         data = json.loads(request.body)
@@ -20,7 +25,9 @@ class UsernameValidationView(View):
             return JsonResponse({'username_error':'An account already exists with this username.'}, status=409)
         return JsonResponse({'username_valid': True})
 
+#--------------------------------------------------------------------------------------------------    
 #View to validate email
+#--------------------------------------------------------------------------------------------------    
 class EmailValidationView(View):
     def post(self, request):
         data = json.loads(request.body)
@@ -32,27 +39,62 @@ class EmailValidationView(View):
             return JsonResponse({'useremail_error':'An account already exists with this email.'}, status=409)
         return JsonResponse({'useremail_valid': True})
 
-        
+#--------------------------------------------------------------------------------------------------       
 #View to render registration page
+#--------------------------------------------------------------------------------------------------    
+
 class RegistrationView(View):
     def get(self, request):
         return render(request, 'authentication/register.html')
     
     def post(self, request):
-        messages.success(request, 'Success Message')
-        return render(request, 'authentication/register.html')
+       
+       username = request.POST['username']
+       email = request.POST['email']
+       password = request.POST['password']
 
+       context = {
+           'fieldValues': request.POST
+       }
+
+       if not User.objects.filter(username=username).exists():           
+           if not User.objects.filter(email=email).exists():             
+                if len(password) < 8:                    
+                    messages.error(request, 'Password too short')
+                    return render(request, 'authentication/register.html', context)
+       
+                user = User.objects.create_user(username=username, email=email)
+                user.set_password(password)
+                user.is_active = False
+                user.save()
+
+                
+                messages.success(request, 'Account successfully created.')
+
+
+
+
+                return render(request, 'authentication/register.html')
+
+       return render(request, 'authentication/register.html')
+    
+#--------------------------------------------------------------------------------------------------    
 #View to render login page
+#--------------------------------------------------------------------------------------------------    
 class LoginView(View):
     def get(self, request):
         return render(request, 'authentication/login.html')
 
+#--------------------------------------------------------------------------------------------------    
 #View to render password reset page
+#--------------------------------------------------------------------------------------------------    
 class PasswordResetView(View):
     def get(self, request):
         return render(request, 'authentication/password-reset.html')
 
+#--------------------------------------------------------------------------------------------------    
 #View to render new password page
+#--------------------------------------------------------------------------------------------------    
 class PasswordNewView(View):
     def get(self, request):
         return render(request, 'authentication/password-new.html')

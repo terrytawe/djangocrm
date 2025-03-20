@@ -3,7 +3,9 @@ const useremailField = document.getElementById("idEmail");
 const usernameFeedback = document.querySelector(".usernameFeedback");
 const useremailFeedback = document.querySelector(".useremailFeedback");
 
+//#--------------------------------------------------------------------------------------------------
 // Validate Username
+//#--------------------------------------------------------------------------------------------------
 usernameField.addEventListener("focusout", (event) => {
   let usernameValue = event.target.value;
 
@@ -27,7 +29,9 @@ usernameField.addEventListener("focusout", (event) => {
   }
 });
 
+//#--------------------------------------------------------------------------------------------------
 //Validate email
+//#--------------------------------------------------------------------------------------------------
 useremailField.addEventListener("focusout", (event) => {
   let useremailValue = event.target.value;
 

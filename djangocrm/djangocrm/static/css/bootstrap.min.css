@@ -4737,6 +4737,12 @@ fieldset:disabled .btn {
   --bs-alert-border-color: var(--bs-danger-border-subtle);
   --bs-alert-link-color: var(--bs-danger-text-emphasis);
 }
+.alert-error {
+  --bs-alert-color: var(--bs-error-text-emphasis);
+  --bs-alert-bg: var(--bs-error-bg-subtle);
+  --bs-alert-border-color: var(--bs-error-border-subtle);
+  --bs-alert-link-color: var(--bs-error-text-emphasis);
+}
 .alert-light {
   --bs-alert-color: var(--bs-light-text-emphasis);
   --bs-alert-bg: var(--bs-light-bg-subtle);

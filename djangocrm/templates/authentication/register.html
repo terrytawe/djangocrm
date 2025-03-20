@@ -13,12 +13,18 @@
           {% csrf_token %} {% include 'partials/_message.html' %}
           <div class="form-group">
             <div class="form-floating">
-              <input type="email" name="email" class="form-control form-control-sm" id="idEmail" placeholder="Email" />
+              <input type="email" name="email" class="form-control form-control-sm" id="idEmail" placeholder="Email" value="{{fieldValues.email}}" />
               <label for="idEmail">Email address</label>
             </div>
             <div class="useremailFeedback invalid-feedback" style="display: none"></div>
             <div class="form-floating">
-              <input type="text" name="username" class="form-control form-control-sm" id="idUsername" placeholder="Username" />
+              <input
+                type="text"
+                name="username"
+                class="form-control form-control-sm"
+                id="idUsername"
+                placeholder="Username"
+                value="{{fieldValues.username}}" />
               <label for="idUsername">Username</label>
             </div>
             <div class="usernameFeedback invalid-feedback" style="display: none"></div>
