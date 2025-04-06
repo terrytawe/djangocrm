@@ -1,19 +1,67 @@
-{% extends "base.html" %} {% block content %}
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Sales &amp; Servicing</title>
+    <link rel="stylesheet" href="{% static "css/landing.css"%}" />
+  </head>
+  <body>
+    <header>
+      <h1>DrivePro Auto</h1>
+      <nav>
+        <a href="{% url 'expenses' %}">Expenses</a>
+        <a href="#featured">Featured Cars</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<h2>Home Expense List</h2>
+    <section class="hero">
+      <h2>Find Your Dream Car</h2>
+      <button>Browse Inventory</button>
+    </section>
 
-<ul class="list-group">
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-  <li class="list-group-item">Bought IPADS</li>
-</ul>
-{% endblock content %}
+    <section class="section" id="services">
+      <h2>Our Services</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Car Sales</h3>
+          <p>Browse top quality vehicles with flexible financing options.</p>
+        </div>
+        <div class="card">
+          <h3>Servicing</h3>
+          <p>Reliable maintenance from certified technicians.</p>
+        </div>
+        <div class="card">
+          <h3>Diagnostics</h3>
+          <p>State-of-the-art tools to keep your car running smoothly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <h2>Featured Vehicles</h2>
+      <div class="featured">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1511394297370-488b70aad6f8" alt="Car 1" />
+          <h3>2023 Tesla Model S</h3>
+          <p>Electric. Fast. Luxurious.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1549921296-3a9b8f2c02ce" alt="Car 2" />
+          <h3>2022 BMW M3</h3>
+          <p>Performance meets precision.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1571607388263-f33b72baeddb" alt="Car 3" />
+          <h3>2021 Audi A6</h3>
+          <p>Elegance and comfort in every ride.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 DrivePro Auto. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

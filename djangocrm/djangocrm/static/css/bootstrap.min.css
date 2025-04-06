@@ -11513,7 +11513,7 @@ label {
 .breadcrumb {
   font-size: 0.875rem;
   font-weight: 300;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .pagination {

@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-3">
+  <h5>Settings</h5>
+  {% include 'partials/_message.html' %}
+  <hr />
+  <form action="{% url "settings" %}" method="post">
+    {% csrf_token %}
+    <div class="input-group">
+      <select name="theme" class="form-select" id="inputGroupSelect01" aria-label="Example select with button addon">
+        {% if user_settings.theme %}
+        <option name="theme" selected>{{user_settings.theme}}</option>
+        {% endif %}
+        {% for theme in themes %}
+        <option name="theme" key="{{theme.name}}">{{theme.value}}</option>
+        {% endfor %}
+      </select>
+      <input class="btn btn-outline-secondary" type="submit" value="Save"/>
+    </div>
+  </form>
+</div>
+{% endblock content %}

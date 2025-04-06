@@ -1,3 +1,21 @@
 {% extends "base.html" %} {% block title %} Add Expense {% endblock title %} {% block content %}
-<h2>Add Expense</h2>
+<div class="container mt-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'expenses'%}">Expenses</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add Expense</li>
+    </ol>
+  </nav>
+  <hr />
+  <form action="{% url 'expenses'%}" method="post">
+    <div class="mb-3">
+      <label for="expenseInputName" class="form-label">Expense name</label>
+      <input type="text" class="form-control" id="expenseInputName" placeholder="Expense name" />
+    </div>
+    <div class="mb-3">
+      <label for="expenseInputDescription" class="form-label">Description</label>
+      <textarea class="form-control" id="expenseInputDescription" rows="3"></textarea>
+    </div>
+  </form>
+</div>
 {% endblock content %}

@@ -188,11 +188,12 @@ class PasswordNewView(View):
 #--------------------------------------------------------------------------------------------------    
 class LogoutView(View):
     def get(self, request):
-        auth.logout(request)
 
         # Clear any existing messages
         storage = messages.get_messages(request)
         list(storage)  # This consumes the generator and clears it
+
+        auth.logout(request)
 
         messages.success(request, 'You have been logged out')
         return redirect('login')
